@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Union | Ananya & Vikram</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #fffdfa;
+            --blush: #fce4ec;
+            --gold: #d4af37;
+            --soft-text: #5d4037;
+            --accent-pink: #f8bbd0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--cream);
+            color: var(--soft-text);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- 🌸 ENTRANCE OVERLAY (To enable Auto-play) --- */
+        #overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--cream);
+            z-index: 20000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease;
+        }
+
+        .enter-btn {
+            padding: 15px 40px;
+            border: 2px solid var(--gold);
+            background: transparent;
+            color: var(--gold);
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 3px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .enter-btn:hover {
+            background: var(--gold);
+            color: white;
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .pinyon { font-family: 'Pinyon Script', cursive; color: var(--gold); }
+
+        /* --- 🌸 FALLING PETALS --- */
+        #petal-container { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            pointer-events: none; z-index: 9999;
+        }
+        .petal {
+            position: absolute; background: var(--accent-pink);
+            border-radius: 150% 0 150% 0; opacity: 0.6;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(105vh) translateX(100px) rotate(360deg); opacity: 0; }
+        }
+
+        /* --- SECTIONS --- */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center;
+            background: linear-gradient(rgba(255, 253, 250, 0.7), rgba(255, 253, 250, 0.7)), 
+                        url('https://images.pexels.com/photos/1040637/pexels-photo-1040637.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-size: cover; background-position: center; padding: 20px;
+        }
+
+        .couple-section { padding: 100px 20px; text-align: center; background: white; }
+        .photo-container { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; margin-top: 50px; }
+        .circle-frame {
+            width: 250px; height: 250px; border-radius: 50%; border: 2px solid var(--gold);
+            padding: 10px; overflow: hidden; margin-bottom: 25px; background: white;
+        }
+        .circle-frame img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+
+        .story-section { padding: 100px 10%; background-color: var(--blush); text-align: center; }
+        .venue-section { padding: 100px 20px; text-align: center; }
+        .btn-gold {
+            display: inline-block; padding: 18px 45px; background: var(--gold); color: white;
+            text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 20px;
+        }
+
+        @media (max-width: 768px) { h1 { font-size: 2.8rem; } }
+    </style>
+</head>
+<body>
+
+    <div id="overlay">
+        <h2 class="pinyon" style="font-size: 3rem; margin-bottom: 20px;">Ananya & Vikram</h2>
+        <button class="enter-btn" onclick="startInvitation()">OPEN INVITATION</button>
+    </div>
+
+    <audio id="myWeddingSong" loop>
+        <source src="Justin Bieber - Baby  (Lyrics) ft. Ludacris.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="petal-container"></div>
+
+    <section class="hero">
+        <div style="z-index: 10;">
+            <p style="letter-spacing: 4px; font-weight: 300;">TOGETHER WITH THEIR FAMILIES</p>
+            <h1 class="pinyon" style="font-size: 4.5rem;">Ananya & Vikram</h1>
+            <p style="margin: 25px 0; font-size: 1.2rem; font-style: italic;">Request the Pleasure of Your Presence</p>
+            <div style="margin-top: 35px; border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold); padding: 20px 40px; display: inline-block;">
+                <p style="font-weight: 500;">📅 DECEMBER 14, 2026</p>
+                <p>📍 ITC GARDENIA, BENGALURU</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="couple-section">
+        <h2 style="font-size: 2.5rem; color: var(--gold);">The Happy Couple</h2>
+        <div class="photo-container">
+            <div class="profile">
+                <div class="circle-frame"><img src="swan1.jpg" alt="Bride Swan"></div>
+                <h3 class="pinyon" style="font-size: 2.5rem;">Ananya</h3>
+                <p style="letter-spacing: 2px; font-size: 0.75rem; color: #999;">THE BRIDE</p>
+            </div>
+            <div class="profile">
+                <div class="circle-frame"><img src="black2.jpg" alt="Groom Swan"></div>
+                <h3 class="pinyon" style="font-size: 2.5rem;">Vikram</h3>
+                <p style="letter-spacing: 2px; font-size: 0.75rem; color: #999;">THE GROOM</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <h2>Our Journey Together</h2>
+        <p style="max-width: 750px; margin: 30px auto; color: #666;">What started as a simple hello turned into endless conversations, shared dreams, and unconditional support. We found not just love — but a lifelong partnership.</p>
+    </section>
+
+    <section class="venue-section">
+        <h2>Wedding Venue</h2>
+        <div style="max-width: 700px; height: 300px; margin: 40px auto; border: 8px solid white; box-shadow: 0 20px 40px rgba(0,0,0,0.1); background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+            <p>ITC Gardenia, Residency Rd, Bengaluru</p>
+        </div>
+        <a href="#" target="_blank" class="btn-gold">VIEW ON GOOGLE MAPS</a>
+    </section>
+
+    <footer style="text-align: center; padding: 60px; background: white; border-top: 1px solid var(--blush); font-size: 0.7rem; letter-spacing: 3px; color: #bbb;">
+        DESIGNED FOR THE UNION OF ANANYA & VIKRAM
+    </footer>
+
+    <script>
+        // Start Invitation & Play Music
+        function startInvitation() {
+            const audio = document.getElementById('myWeddingSong');
+            const overlay = document.getElementById('overlay');
+            
+            // Play Audio
+            audio.play().catch(err => console.log("Audio play blocked."));
+            
+            // Hide Overlay
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 1000);
+        }
+
+        // Petal Animation
+        const pContainer = document.getElementById('petal-container');
+        function createPetal() {
+            const p = document.createElement('div');
+            p.className = 'petal';
+            const size = Math.random() * 12 + 8;
+            p.style.width = size + 'px';
+            p.style.height = size + 'px';
+            p.style.left = Math.random() * 100 + 'vw';
+            const dur = Math.random() * 5 + 7;
+            p.style.animationDuration = dur + 's';
+            pContainer.appendChild(p);
+            setTimeout(() => p.remove(), dur * 1000);
+        }
+        setInterval(createPetal, 450);
+    </script>
+</body>
+</html>
